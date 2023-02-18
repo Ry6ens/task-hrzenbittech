@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { sendForm } from './form-operations';
 
 const initialState = {
-  item: null,
+  message: '',
   loading: false,
   error: null,
 };
@@ -11,7 +11,11 @@ const initialState = {
 const form = createSlice({
   name: 'contact-form',
   initialState,
-  reducers: {},
+  reducers: {
+    clearMessage: state => {
+      state.message = '';
+    },
+  },
   extraReducers: builder => {
     // Form
     builder
@@ -21,7 +25,7 @@ const form = createSlice({
       })
       .addCase(sendForm.fulfilled, (state, { payload }) => {
         state.loading = false;
-        state.item = payload;
+        state.message = payload;
       })
       .addCase(sendForm.rejected, (state, { payload }) => {
         state.loading = false;

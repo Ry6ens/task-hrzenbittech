@@ -18,6 +18,7 @@ import {
 } from './Main.styled';
 
 import ContactForm from 'components/ContactForm/ContactForm';
+import SendInfo from 'components/SendInfo/SendInfo';
 
 export default function Main() {
   return (
@@ -25,6 +26,7 @@ export default function Main() {
       <SectionContainer>
         <Title>Reach out to us!</Title>
         <ContactForm />
+        <SendInfo />
         <MapImg />
         <YellowCartoon01Icon />
         <Clouds01Icon />
