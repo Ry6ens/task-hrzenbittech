@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { sendForm } from './form-operations';
 
 const initialState = {
+  item: null,
   loading: false,
   error: null,
 };
@@ -12,7 +13,7 @@ const form = createSlice({
   initialState,
   reducers: {},
   extraReducers: builder => {
-    // SignUp by email
+    // Form
     builder
       .addCase(sendForm.pending, state => {
         state.loading = true;
@@ -20,6 +21,7 @@ const form = createSlice({
       })
       .addCase(sendForm.fulfilled, (state, { payload }) => {
         state.loading = false;
+        state.item = payload;
       })
       .addCase(sendForm.rejected, (state, { payload }) => {
         state.loading = false;
