@@ -7,7 +7,6 @@ export const sendForm = createAsyncThunk(
   async (userData, { rejectWithValue }) => {
     try {
       const data = await fetchForm(userData);
-      console.log('data_answer', data);
       return data;
     } catch (error) {
       const { data, status } = error.response;
